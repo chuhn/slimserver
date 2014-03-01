@@ -1,0 +1,5 @@
+slimserver (7.7.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Christopher Huhn <christo@arthur.knollhuhn.de>  Sat, 01 Mar 2014 18:17:35 +0100
