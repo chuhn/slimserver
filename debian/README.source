@@ -1,26 +1,9 @@
 slimserver for Debian
 ---------------------
 
-This is an attempt to create a package for Slimserver aka. SqueezeCenter aka.
-Squeezebox Server aka. Logitech Media Server that is suitable for inclusion 
-in Debian.
+<this file describes information about the source package, see Debian policy
+manual section 4.14. You WILL either need to modify or delete this file>
 
-The Firmware files are non-free and cannot be included.
 
-TODO
-----
 
-Perl Code:
 
-* Slim::Schema::Storage has been disabled, it's exception handling breaks 
-  DBIx::Class > 0.08112 - fixing the code would be preferable
-* DBIx::Migration needs to be patched because Slimserver wants to use existing
-  connection handles for migration - fix to work with pristine module?
-
-Other stuff:
-
-* HTML templates/themes are © Logitech
-* Graphics (ie. bitmap fonts) are © Logitech
-* IR/button codes are not explicitely free but inevitable to support squeezeboxes
-
-* Write a firmware download helper
