@@ -1,8 +1,8 @@
 Source: slimserver
 Section: unknown
 Priority: extra
-Maintainer: Christopher Huhn <christo@arthur.knollhuhn.de>
-Build-Depends: debhelper (>= 8.0.0)
+Maintainer: Christopher Huhn <christo@knollhuhn.de>
+Build-Depends: debhelper (>= 8.0.0), dh-exec
 Standards-Version: 3.9.4
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Git: git://git.debian.org/collab-maint/slimserver.git
