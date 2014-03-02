@@ -1,3 +1,4 @@
-slimserver.pl /usr/sbin/slimserver
-scanner.pl    /usr/sbin/slimserver-scanner
-cleanup.pl    /usr/sbin/slimserver-cleanup
+#! /usr/bin/dh-exec
+slimserver.pl => /usr/sbin/slimserver
+scanner.pl    => /usr/sbin/slimserver-scanner
+cleanup.pl    => /usr/sbin/slimserver-cleanup
