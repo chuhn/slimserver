@@ -1,0 +1,24 @@
+#!/bin/sh -e
+
+case "$1" in
+    configure)
+	if ! getent passwd slimserver >/dev/null; then
+	    adduser --disabled-password  --quiet --system \
+		--home /usr/share/slimserver --no-create-home \
+		--gecos "RealtimeKit" --group slimserver
+	fi
+
+	chown -R slimserver:slimserver /var/log/slimserver
+
+	;;
+    abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+    *)
+	echo "postinst called with unknown argument \`$1'" >&2
+	exit 1
+	;;
+esac
+
+#DEBHELPER#
+
+exit 0
