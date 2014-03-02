@@ -10,6 +10,6 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: slimserver
 Architecture: all
-Depends: ${misc:Depends}, libdigest-sha-perl, libev-perl
+Depends: ${misc:Depends}, libanyevent-perl, libaudio-scan-perl, libcache-cache-perl, libdata-dump-perl, libdata-uriencode-perl, libdbix-class-perl, libdbix-class-perl, libdbix-migration-perl, libdigest-sha-perl, libev-perl, libfile-bom-perl, libfile-next-perl, libfile-slurp-perl, liblog-log4perl-perl, libpath-class-perl, libproc-background-perl, libtext-unidecode-perl, libtie-cache-lru-perl, libtie-cache-lru-expires-perl, libtie-regexphash-perl, liburi-find-perl
 Description: <insert up to 60 chars description>
  <insert long description, indented with spaces>
