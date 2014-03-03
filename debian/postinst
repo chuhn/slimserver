@@ -8,7 +8,7 @@ case "$1" in
 		--gecos "RealtimeKit" --group slimserver
 	fi
 
-	chown -R slimserver:slimserver /var/log/slimserver /var/lib/slimserver/prefs
+	chown -R slimserver:slimserver /var/log/slimserver /var/lib/slimserver
 
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
