@@ -1,2 +1,3 @@
 /etc/slimserver
+/var/lib/slimserver/prefs
 /var/log/slimserver
