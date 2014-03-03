@@ -1,3 +1,8 @@
+# config:
 /etc/slimserver
+# plugin cache 
+/var/lib/slimserver/cache
+# preferences (should be in /etc?)
 /var/lib/slimserver/prefs
+# log files:
 /var/log/slimserver
