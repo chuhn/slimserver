@@ -1,3 +1,4 @@
 0001-Use-Digest-SHA-instead-of-Digest-SHA1-the-latter-is-.patch
 0002-Derive-our-own-path-definitions-from-existing-Debian.patch
 0003-JSON-XS-VersionOneAndTwo-totally-obsolete.patch
+0004-Don-t-attach-in-on_connect_do.patch
