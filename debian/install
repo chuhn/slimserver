@@ -9,4 +9,4 @@ SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
 HTML              /usr/share/slimserver/
 convert.conf      /etc/slimserver/
 types.conf        /etc/slimserver/
-Graphics          /usr/share/slimserver/
+Graphics/*.bmp    /usr/share/slimserver/Graphics/
