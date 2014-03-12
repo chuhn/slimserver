@@ -2,3 +2,4 @@
 0002-Derive-our-own-path-definitions-from-existing-Debian.patch
 0003-JSON-XS-VersionOneAndTwo-totally-obsolete.patch
 #0004-Don-t-attach-in-on_connect_do-and-disable-the-follow.patch
+0005-TTL-and-IP-are-reverted-in-resolver-response.patch
