@@ -7,3 +7,6 @@ Slim              /usr/share/perl5/
 strings.txt       /usr/share/slimserver/
 SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
 HTML              /usr/share/slimserver/
+convert.conf      /etc/slimserver/
+types.conf        /etc/slimserver/
+Graphics          /usr/share/slimserver/
