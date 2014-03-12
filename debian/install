@@ -2,11 +2,15 @@
 slimserver.pl  => /usr/sbin/slimserver
 scanner.pl     => /usr/sbin/slimserver-scanner
 cleanup.pl     => /usr/sbin/slimserver-cleanup
+
 # don't install into Perl libs but to usr/lib/slimserver?
 Slim              /usr/share/perl5/
-strings.txt       /usr/share/slimserver/
-SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
+
+Graphics/*.bmp    /usr/share/slimserver/Graphics/
 HTML              /usr/share/slimserver/
+IR                /usr/share/slimserver/
+SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
+strings.txt       /usr/share/slimserver/
+
 convert.conf      /etc/slimserver/
 types.conf        /etc/slimserver/
-Graphics/*.bmp    /usr/share/slimserver/Graphics/
