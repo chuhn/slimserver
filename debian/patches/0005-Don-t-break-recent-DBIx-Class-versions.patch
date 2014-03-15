@@ -7,7 +7,7 @@ Subject: Don't break recent DBIx::Class versions
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/Slim/Schema.pm b/Slim/Schema.pm
-index 3a48dd2..de0f8aa 100644
+index d158f61..e866622 100644
 --- a/Slim/Schema.pm
 +++ b/Slim/Schema.pm
 @@ -294,8 +294,9 @@ sub _connect {

@@ -7,10 +7,10 @@ Subject: TTL and IP are reverted in resolver response
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/Slim/Networking/Async/DNS.pm b/Slim/Networking/Async/DNS.pm
-index d91c03d..7cf710f 100644
+index 9abf694..7f7dff5 100644
 --- a/Slim/Networking/Async/DNS.pm
 +++ b/Slim/Networking/Async/DNS.pm
-@@ -109,8 +109,8 @@ sub resolve {
+@@ -99,8 +99,8 @@ sub resolve {
  			return;
  		}
  		
@@ -21,7 +21,7 @@ index d91c03d..7cf710f 100644
  		
  		main::DEBUGLOG && $log->is_debug && $log->debug( "Got DNS response $addr for $host (ttl $ttl)" );
  		
-@@ -139,4 +139,4 @@ sub cached {
+@@ -129,4 +129,4 @@ sub cached {
  	return;
  }
  
