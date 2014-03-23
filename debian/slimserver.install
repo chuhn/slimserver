@@ -1,13 +1,17 @@
 #! /usr/bin/dh-exec
+
 slimserver.pl  => /usr/sbin/slimserver
 scanner.pl     => /usr/sbin/slimserver-scanner
 cleanup.pl     => /usr/sbin/slimserver-cleanup
+
+# don't install into Perl libs but to usr/lib/slimserver?
 Slim              /usr/share/perl5/
+
 Graphics/*.bmp    /usr/share/slimserver/Graphics/
-Firmware/*.version /usr/share/slimserver/firmware/
 HTML              /usr/share/slimserver/
 IR                /usr/share/slimserver/
 SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
 strings.txt       /usr/share/slimserver/
+
 convert.conf      /etc/slimserver/
 types.conf        /etc/slimserver/
