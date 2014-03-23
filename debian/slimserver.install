@@ -4,6 +4,7 @@ scanner.pl     => /usr/sbin/slimserver-scanner
 cleanup.pl     => /usr/sbin/slimserver-cleanup
 Slim              /usr/share/perl5/
 Graphics/*.bmp    /usr/share/slimserver/Graphics/
+Firmware/*.version /usr/share/slimserver/firmware/
 HTML              /usr/share/slimserver/
 IR                /usr/share/slimserver/
 SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
