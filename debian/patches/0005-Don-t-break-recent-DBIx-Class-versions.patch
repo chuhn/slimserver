@@ -3,11 +3,11 @@ Date: Sat, 15 Mar 2014 18:26:35 +0100
 Subject: Don't break recent DBIx::Class versions
 
 ---
- Slim/Schema.pm | 5 +++--
+ Slim/Schema.pm |    5 +++--
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/Slim/Schema.pm b/Slim/Schema.pm
-index d158f61..e866622 100644
+index 543c834..9fa1aed 100644
 --- a/Slim/Schema.pm
 +++ b/Slim/Schema.pm
 @@ -294,8 +294,9 @@ sub _connect {

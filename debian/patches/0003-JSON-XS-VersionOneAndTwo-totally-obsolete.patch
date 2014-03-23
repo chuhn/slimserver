@@ -3,41 +3,41 @@ Date: Sun, 2 Mar 2014 23:09:47 +0100
 Subject: JSON::XS::VersionOneAndTwo totally obsolete
 
 ---
- Slim/Control/Commands.pm                      |   2 +-
- Slim/Control/Queries.pm                       |   2 +-
- Slim/Formats/XML.pm                           |   2 +-
- Slim/GUI/ControlPanel.pm                      |   2 +-
- Slim/Networking/Discovery/Players.pm          |   2 +-
- Slim/Networking/SqueezeNetwork.pm             |   2 +-
- Slim/Networking/SqueezeNetwork/Players.pm     |   2 +-
- Slim/Networking/SqueezeNetwork/PrefSync.pm    |   2 +-
- Slim/Networking/SqueezeNetwork/Stats.pm       |   2 +-
- Slim/Plugin/AudioScrobbler/Plugin.pm          |   2 +-
- Slim/Plugin/Classical/ProtocolHandler.pm      |   2 +-
- Slim/Plugin/Deezer/ProtocolHandler.pm         |   2 +-
- Slim/Plugin/Facebook/Plugin.pm                | 173 ++++++++++
- Slim/Plugin/Flickr/Plugin.pm                  |   2 +-
- Slim/Plugin/ImageBrowser/Plugin.pm            |   2 +-
- Slim/Plugin/LastFM/Plugin.pm                  |   2 +-
- Slim/Plugin/LastFM/ProtocolHandler.pm         |   2 +-
- Slim/Plugin/Live365/ProtocolHandler.pm        |   2 +-
- Slim/Plugin/MOG/ProtocolHandler.pm            |   2 +-
- Slim/Plugin/Mediafly/ProtocolHandler.pm       | 468 ++++++++++++++++++++++++++
- Slim/Plugin/Orange/Metadata.pm                |   2 +-
- Slim/Plugin/Pandora/ProtocolHandler.pm        |   2 +-
- Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm |   2 +-
- Slim/Plugin/SN/ProtocolHandler.pm             |   2 +-
- Slim/Plugin/Sirius/ProtocolHandler.pm         |   2 +-
- Slim/Plugin/Slacker/ProtocolHandler.pm        |   2 +-
- Slim/Plugin/SpotifyLogi/ProtocolHandler.pm    |   2 +-
- Slim/Plugin/WiMP/ProtocolHandler.pm           |   2 +-
- Slim/Schema/TrackPersistent.pm                |   2 +-
- Slim/Utils/Prefs/Base.pm                      |   2 +-
- Slim/Utils/Progress.pm                        |   2 +-
- Slim/Utils/SQLiteHelper.pm                    |   2 +-
- Slim/Utils/Strings.pm                         |   2 +-
- Slim/Web/Cometd.pm                            |   2 +-
- Slim/Web/JSONRPC.pm                           |   2 +-
+ Slim/Control/Commands.pm                      |    2 +-
+ Slim/Control/Queries.pm                       |    2 +-
+ Slim/Formats/XML.pm                           |    2 +-
+ Slim/GUI/ControlPanel.pm                      |    2 +-
+ Slim/Networking/Discovery/Players.pm          |    2 +-
+ Slim/Networking/SqueezeNetwork.pm             |    2 +-
+ Slim/Networking/SqueezeNetwork/Players.pm     |    2 +-
+ Slim/Networking/SqueezeNetwork/PrefSync.pm    |    2 +-
+ Slim/Networking/SqueezeNetwork/Stats.pm       |    2 +-
+ Slim/Plugin/AudioScrobbler/Plugin.pm          |    2 +-
+ Slim/Plugin/Classical/ProtocolHandler.pm      |    2 +-
+ Slim/Plugin/Deezer/ProtocolHandler.pm         |    2 +-
+ Slim/Plugin/Facebook/Plugin.pm                |  173 +++++++++
+ Slim/Plugin/Flickr/Plugin.pm                  |    2 +-
+ Slim/Plugin/ImageBrowser/Plugin.pm            |    2 +-
+ Slim/Plugin/LastFM/Plugin.pm                  |    2 +-
+ Slim/Plugin/LastFM/ProtocolHandler.pm         |    2 +-
+ Slim/Plugin/Live365/ProtocolHandler.pm        |    2 +-
+ Slim/Plugin/MOG/ProtocolHandler.pm            |    2 +-
+ Slim/Plugin/Mediafly/ProtocolHandler.pm       |  468 +++++++++++++++++++++++++
+ Slim/Plugin/Orange/Metadata.pm                |    2 +-
+ Slim/Plugin/Pandora/ProtocolHandler.pm        |    2 +-
+ Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm |    2 +-
+ Slim/Plugin/SN/ProtocolHandler.pm             |    2 +-
+ Slim/Plugin/Sirius/ProtocolHandler.pm         |    2 +-
+ Slim/Plugin/Slacker/ProtocolHandler.pm        |    2 +-
+ Slim/Plugin/SpotifyLogi/ProtocolHandler.pm    |    2 +-
+ Slim/Plugin/WiMP/ProtocolHandler.pm           |    2 +-
+ Slim/Schema/TrackPersistent.pm                |    2 +-
+ Slim/Utils/Prefs/Base.pm                      |    2 +-
+ Slim/Utils/Progress.pm                        |    2 +-
+ Slim/Utils/SQLiteHelper.pm                    |    2 +-
+ Slim/Utils/Strings.pm                         |    2 +-
+ Slim/Web/Cometd.pm                            |    2 +-
+ Slim/Web/JSONRPC.pm                           |    2 +-
  35 files changed, 674 insertions(+), 33 deletions(-)
  create mode 100644 Slim/Plugin/Facebook/Plugin.pm
  create mode 100644 Slim/Plugin/Mediafly/ProtocolHandler.pm
