@@ -1,25 +1,26 @@
 From: Christopher Huhn <c.huhn@gsi.de>
 Date: Sun, 2 Mar 2014 21:37:25 +0100
-Subject: Use Digest::SHA instead of Digest::SHA1 - the latter is not in Debian
+Subject: Use Digest::SHA instead of Digest::SHA1 - the latter is not in
+ Debian
 
 ---
- Slim/Control/Commands.pm                   | 2 +-
- Slim/Music/Artwork.pm                      | 2 +-
- Slim/Networking/SqueezeNetwork.pm          | 2 +-
- Slim/Plugin/iTunes/Common.pm               | 4 ++--
- Slim/Utils/Firmware.pm                     | 6 +++---
- Slim/Utils/Misc.pm                         | 2 +-
- Slim/Utils/PluginDownloader.pm             | 4 ++--
- Slim/Utils/Strings.pm                      | 2 +-
- Slim/Web/HTTP.pm                           | 2 +-
- Slim/Web/Settings/Server/Security.pm       | 2 +-
- Slim/Web/Settings/Server/SqueezeNetwork.pm | 2 +-
- Slim/Web/Settings/Server/Wizard.pm         | 2 +-
- Slim/bootstrap.pm                          | 2 +-
+ Slim/Control/Commands.pm                   |    2 +-
+ Slim/Music/Artwork.pm                      |    2 +-
+ Slim/Networking/SqueezeNetwork.pm          |    2 +-
+ Slim/Plugin/iTunes/Common.pm               |    4 ++--
+ Slim/Utils/Firmware.pm                     |    6 +++---
+ Slim/Utils/Misc.pm                         |    2 +-
+ Slim/Utils/PluginDownloader.pm             |    4 ++--
+ Slim/Utils/Strings.pm                      |    2 +-
+ Slim/Web/HTTP.pm                           |    2 +-
+ Slim/Web/Settings/Server/Security.pm       |    2 +-
+ Slim/Web/Settings/Server/SqueezeNetwork.pm |    2 +-
+ Slim/Web/Settings/Server/Wizard.pm         |    2 +-
+ Slim/bootstrap.pm                          |    2 +-
  13 files changed, 17 insertions(+), 17 deletions(-)
 
 diff --git a/Slim/Control/Commands.pm b/Slim/Control/Commands.pm
-index e8b9c4c..dabae7e 100644
+index ecbbf9a..1eeacb3 100644
 --- a/Slim/Control/Commands.pm
 +++ b/Slim/Control/Commands.pm
 @@ -31,7 +31,7 @@ use Scalar::Util qw(blessed);
@@ -32,10 +33,10 @@ index e8b9c4c..dabae7e 100644
  
  use Slim::Utils::Alarm;
 diff --git a/Slim/Music/Artwork.pm b/Slim/Music/Artwork.pm
-index fbd2980..7a6b5ac 100644
+index 5cd79b6..77760be 100644
 --- a/Slim/Music/Artwork.pm
 +++ b/Slim/Music/Artwork.pm
-@@ -741,7 +741,7 @@ sub _downloadArtwork {
+@@ -959,7 +959,7 @@ sub _downloadArtwork {
  			. '&artist=' . URI::Escape::uri_escape_utf8( $artist || '' )
  			. '&mbid=' . ( $lastFile{meta}->{album_mbid} || '' );
  	
@@ -45,7 +46,7 @@ index fbd2980..7a6b5ac 100644
  		# if we're done or have failed on that combination before, skip it
  		if ( $done || $lastFile{ "failed_" . $lastFile{meta}->{albumid} } || $lastFile{ "failed_$base" } || $lastFile{ $lastFile{meta}->{albumid} } ) {
 diff --git a/Slim/Networking/SqueezeNetwork.pm b/Slim/Networking/SqueezeNetwork.pm
-index 7040a93..58f2afa 100644
+index bbe115f..3b9f775 100644
 --- a/Slim/Networking/SqueezeNetwork.pm
 +++ b/Slim/Networking/SqueezeNetwork.pm
 @@ -7,7 +7,7 @@ package Slim::Networking::SqueezeNetwork;
@@ -111,7 +112,7 @@ index e81e5b3..bf5f76f 100644
  	close $fh;
  	
 diff --git a/Slim/Utils/Misc.pm b/Slim/Utils/Misc.pm
-index fca9db1..59dcf2c 100644
+index 635014b..3f4241a 100644
 --- a/Slim/Utils/Misc.pm
 +++ b/Slim/Utils/Misc.pm
 @@ -46,7 +46,7 @@ use Time::HiRes;
@@ -159,7 +160,7 @@ index 20d2270..54cb024 100644
  use File::Slurp qw(read_file write_file);
  use File::Spec::Functions qw(:ALL);
 diff --git a/Slim/Web/HTTP.pm b/Slim/Web/HTTP.pm
-index 2e3c998..f89a36d 100644
+index f6a6641..1e8d0f9 100644
 --- a/Slim/Web/HTTP.pm
 +++ b/Slim/Web/HTTP.pm
 @@ -11,7 +11,7 @@ use strict;
@@ -185,7 +186,7 @@ index b598e5a..a69e975 100644
  
  use Slim::Utils::Prefs;
 diff --git a/Slim/Web/Settings/Server/SqueezeNetwork.pm b/Slim/Web/Settings/Server/SqueezeNetwork.pm
-index 3542464..3caa0c9 100644
+index 8777f34..92e219f 100644
 --- a/Slim/Web/Settings/Server/SqueezeNetwork.pm
 +++ b/Slim/Web/Settings/Server/SqueezeNetwork.pm
 @@ -9,7 +9,7 @@ package Slim::Web::Settings::Server::SqueezeNetwork;
@@ -211,7 +212,7 @@ index 5ad9219..3b89ef6 100644
  use HTTP::Status qw(RC_MOVED_TEMPORARILY);
  
 diff --git a/Slim/bootstrap.pm b/Slim/bootstrap.pm
-index 94eb98f..3048e86 100644
+index f390c34..8fb87d3 100644
 --- a/Slim/bootstrap.pm
 +++ b/Slim/bootstrap.pm
 @@ -52,7 +52,7 @@ use Slim::Utils::OSDetect;
