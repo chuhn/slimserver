@@ -3,3 +3,4 @@
 0003-JSON-XS-VersionOneAndTwo-totally-obsolete.patch
 0004-TTL-and-IP-are-reverted-in-resolver-response.patch
 0005-Don-t-break-recent-DBIx-Class-versions.patch
+0006-Don-t-check-Perl-module-dependencies-rely-on-apt.patch
