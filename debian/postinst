@@ -8,6 +8,9 @@ case "$1" in
 		--gecos "RealtimeKit" --group slimserver
 	fi
 
+     	test -d /var/lib/slimserver/Firmware || mkdir /var/lib/slimserver/Firmware
+	cp -u /usr/share/slimserver/firmware/* /var/lib/slimserver/Firmware
+
 	chown -R slimserver:slimserver /var/log/slimserver /var/lib/slimserver
 
 	;;
