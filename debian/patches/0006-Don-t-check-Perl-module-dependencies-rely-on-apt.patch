@@ -3,14 +3,14 @@ Date: Sun, 23 Mar 2014 12:56:38 +0100
 Subject: Don't check Perl module dependencies, rely on apt
 
 ---
- Slim/bootstrap.pm |   25 -------------------------
+ Slim/bootstrap.pm | 25 -------------------------
  1 file changed, 25 deletions(-)
 
 diff --git a/Slim/bootstrap.pm b/Slim/bootstrap.pm
-index 8fb87d3..7fd2418 100644
+index 6c68025..f57b04f 100644
 --- a/Slim/bootstrap.pm
 +++ b/Slim/bootstrap.pm
-@@ -224,31 +224,6 @@ don't work for you, ask for help and/or report a bug.
+@@ -225,31 +225,6 @@ don't work for you, ask for help and/or report a bug.
  	# And we're done with the trying - put our CPAN path back on @INC.
  	unshift @INC, @SlimINC;
  	

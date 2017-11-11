@@ -3,7 +3,7 @@ Date: Sun, 2 Mar 2014 22:15:21 +0100
 Subject: Derive our own path definitions from existing Debian template
 
 ---
- Slim/Utils/OS/Custom.pm |  114 +++++++++++++++++++++++++++++++++++++++++++++++
+ Slim/Utils/OS/Custom.pm | 114 ++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 114 insertions(+)
  create mode 100644 Slim/Utils/OS/Custom.pm
 

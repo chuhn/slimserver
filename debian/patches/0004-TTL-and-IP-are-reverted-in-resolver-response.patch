@@ -3,7 +3,7 @@ Date: Wed, 12 Mar 2014 11:55:51 +0100
 Subject: TTL and IP are reverted in resolver response
 
 ---
- Slim/Networking/Async/DNS.pm |    6 +++---
+ Slim/Networking/Async/DNS.pm | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/Slim/Networking/Async/DNS.pm b/Slim/Networking/Async/DNS.pm
