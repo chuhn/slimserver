@@ -1,8 +1,8 @@
-slimserver (7.9.0-1) UNRELEASED; urgency=medium
+slimserver (7.9+20171120.12c414e-1) UNRELEASED; urgency=medium
 
-  * Build 7.9.0
+  * Package latest version
 
- -- Christopher Huhn <christo@knollhuhn.de>  Thu, 09 Nov 2017 19:35:50 +0100
+ -- Christopher Huhn <christo@knollhuhn.de>  Thu, 26 Nov 2017 21:38:50 +0100
 
 slimserver (7.8.0-1) unstable; urgency=low
 
