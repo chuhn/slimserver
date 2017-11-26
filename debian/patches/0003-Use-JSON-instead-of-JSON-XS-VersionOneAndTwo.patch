@@ -1,0 +1,490 @@
+From: Christopher Huhn <c.huhn@gsi.de>
+Date: Sun, 26 Nov 2017 22:35:23 +0100
+Subject: Use JSON instead of JSON::XS::VersionOneAndTwo
+
+---
+ Slim/Control/Commands.pm                      | 2 +-
+ Slim/Control/Queries.pm                       | 2 +-
+ Slim/Formats/XML.pm                           | 2 +-
+ Slim/GUI/ControlPanel.pm                      | 2 +-
+ Slim/Menu/BrowseLibrary.pm                    | 2 +-
+ Slim/Networking/Discovery/Players.pm          | 2 +-
+ Slim/Networking/SqueezeNetwork.pm             | 2 +-
+ Slim/Networking/SqueezeNetwork/Players.pm     | 2 +-
+ Slim/Networking/SqueezeNetwork/PrefSync.pm    | 2 +-
+ Slim/Networking/SqueezeNetwork/Stats.pm       | 2 +-
+ Slim/Plugin/AudioScrobbler/Plugin.pm          | 2 +-
+ Slim/Plugin/Classical/ProtocolHandler.pm      | 2 +-
+ Slim/Plugin/Deezer/Plugin.pm                  | 2 +-
+ Slim/Plugin/Deezer/ProtocolHandler.pm         | 2 +-
+ Slim/Plugin/DnDPlay/Plugin.pm                 | 2 +-
+ Slim/Plugin/Flickr/Plugin.pm                  | 2 +-
+ Slim/Plugin/ImageBrowser/Plugin.pm            | 2 +-
+ Slim/Plugin/Live365/ProtocolHandler.pm        | 2 +-
+ Slim/Plugin/MOG/ProtocolHandler.pm            | 2 +-
+ Slim/Plugin/Orange/Metadata.pm                | 2 +-
+ Slim/Plugin/Pandora/ProtocolHandler.pm        | 2 +-
+ Slim/Plugin/RemoteLibrary/LMS.pm              | 4 ++--
+ Slim/Plugin/RemoteLibrary/ProtocolHandler.pm  | 2 +-
+ Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm | 2 +-
+ Slim/Plugin/SN/ProtocolHandler.pm             | 2 +-
+ Slim/Plugin/Slacker/ProtocolHandler.pm        | 2 +-
+ Slim/Plugin/WiMP/ProtocolHandler.pm           | 2 +-
+ Slim/Schema/TrackPersistent.pm                | 2 +-
+ Slim/Utils/Prefs/Base.pm                      | 2 +-
+ Slim/Utils/Progress.pm                        | 2 +-
+ Slim/Utils/SQLiteHelper.pm                    | 2 +-
+ Slim/Utils/Strings.pm                         | 2 +-
+ Slim/Web/Cometd.pm                            | 2 +-
+ Slim/Web/JSONRPC.pm                           | 2 +-
+ 34 files changed, 35 insertions(+), 35 deletions(-)
+
+diff --git a/Slim/Control/Commands.pm b/Slim/Control/Commands.pm
+index 9940d18..e32b99e 100644
+--- a/Slim/Control/Commands.pm
++++ b/Slim/Control/Commands.pm
+@@ -32,7 +32,7 @@ use File::Spec::Functions qw(catfile);
+ use File::Basename qw(basename);
+ use Digest::MD5 qw(md5_hex);
+ use Digest::SHA qw(sha1_base64);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Utils::Alarm;
+ use Slim::Utils::Log;
+diff --git a/Slim/Control/Queries.pm b/Slim/Control/Queries.pm
+index bc8963d..340c3ca 100644
+--- a/Slim/Control/Queries.pm
++++ b/Slim/Control/Queries.pm
+@@ -30,7 +30,7 @@ L<Slim::Control::Queries> implements most Logitech Media Server queries and is d
+ use strict;
+ 
+ use Storable;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Digest::MD5 qw(md5_hex);
+ use MIME::Base64 qw(encode_base64 decode_base64);
+ use Scalar::Util qw(blessed);
+diff --git a/Slim/Formats/XML.pm b/Slim/Formats/XML.pm
+index 928373f..a8fab87 100644
+--- a/Slim/Formats/XML.pm
++++ b/Slim/Formats/XML.pm
+@@ -13,7 +13,7 @@ package Slim::Formats::XML;
+ use strict;
+ use File::Slurp;
+ use HTML::Entities;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(weaken);
+ use URI::Escape qw(uri_escape uri_escape_utf8);
+ use XML::Simple;
+diff --git a/Slim/GUI/ControlPanel.pm b/Slim/GUI/ControlPanel.pm
+index 5feb1fd..d17c0ba 100644
+--- a/Slim/GUI/ControlPanel.pm
++++ b/Slim/GUI/ControlPanel.pm
+@@ -270,7 +270,7 @@ package Slim::GUI::ControlPanel;
+ use base 'Wx::App';
+ use Wx qw(:everything);
+ use LWP::UserAgent;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Utils::ServiceManager;
+ 
+diff --git a/Slim/Menu/BrowseLibrary.pm b/Slim/Menu/BrowseLibrary.pm
+index 48fe8c0..cd09a13 100644
+--- a/Slim/Menu/BrowseLibrary.pm
++++ b/Slim/Menu/BrowseLibrary.pm
+@@ -145,7 +145,7 @@ should be passed a reference to a real sub (not an anonymous one).
+ 
+ 
+ use strict;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Music::VirtualLibraries;
+ use Slim::Utils::Cache;
+diff --git a/Slim/Networking/Discovery/Players.pm b/Slim/Networking/Discovery/Players.pm
+index b501822..7c010c6 100644
+--- a/Slim/Networking/Discovery/Players.pm
++++ b/Slim/Networking/Discovery/Players.pm
+@@ -11,7 +11,7 @@ package Slim::Networking::Discovery::Players;
+ 
+ use strict;
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Control::Request;
+ use Slim::Networking::Discovery::Server;
+diff --git a/Slim/Networking/SqueezeNetwork.pm b/Slim/Networking/SqueezeNetwork.pm
+index 67ef313..905d634 100644
+--- a/Slim/Networking/SqueezeNetwork.pm
++++ b/Slim/Networking/SqueezeNetwork.pm
+@@ -8,7 +8,7 @@ use strict;
+ use base qw(Slim::Networking::SimpleAsyncHTTP);
+ 
+ use Digest::SHA qw(sha1_base64);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use MIME::Base64 qw(encode_base64);
+ use List::Util qw(max);
+ use URI::Escape qw(uri_escape);
+diff --git a/Slim/Networking/SqueezeNetwork/Players.pm b/Slim/Networking/SqueezeNetwork/Players.pm
+index 3c141cb..11a9910 100644
+--- a/Slim/Networking/SqueezeNetwork/Players.pm
++++ b/Slim/Networking/SqueezeNetwork/Players.pm
+@@ -7,7 +7,7 @@ package Slim::Networking::SqueezeNetwork::Players;
+ use strict;
+ 
+ use Data::URIEncode qw(complex_to_query);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Control::Request;
+ use Slim::Networking::SqueezeNetwork;
+diff --git a/Slim/Networking/SqueezeNetwork/PrefSync.pm b/Slim/Networking/SqueezeNetwork/PrefSync.pm
+index 3faf2ea..e0583fa 100644
+--- a/Slim/Networking/SqueezeNetwork/PrefSync.pm
++++ b/Slim/Networking/SqueezeNetwork/PrefSync.pm
+@@ -8,7 +8,7 @@ use strict;
+ 
+ use File::Basename qw(basename dirname);
+ use File::Spec::Functions qw(catfile);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Control::Request;
+ use Slim::Hardware::IR;
+diff --git a/Slim/Networking/SqueezeNetwork/Stats.pm b/Slim/Networking/SqueezeNetwork/Stats.pm
+index 9445e58..4c2e720 100644
+--- a/Slim/Networking/SqueezeNetwork/Stats.pm
++++ b/Slim/Networking/SqueezeNetwork/Stats.pm
+@@ -6,7 +6,7 @@ package Slim::Networking::SqueezeNetwork::Stats;
+ 
+ use strict;
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Control::Request;
+ use Slim::Networking::SqueezeNetwork;
+diff --git a/Slim/Plugin/AudioScrobbler/Plugin.pm b/Slim/Plugin/AudioScrobbler/Plugin.pm
+index e25496d..57739e8 100644
+--- a/Slim/Plugin/AudioScrobbler/Plugin.pm
++++ b/Slim/Plugin/AudioScrobbler/Plugin.pm
+@@ -43,7 +43,7 @@ use Slim::Utils::Strings qw(string);
+ use Slim::Utils::Timers;
+ 
+ use Digest::MD5 qw(md5_hex);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use URI::Escape qw(uri_escape_utf8 uri_unescape);
+ 
+ my $prefs = preferences('plugin.audioscrobbler');
+diff --git a/Slim/Plugin/Classical/ProtocolHandler.pm b/Slim/Plugin/Classical/ProtocolHandler.pm
+index 4c43eb0..0b5664e 100644
+--- a/Slim/Plugin/Classical/ProtocolHandler.pm
++++ b/Slim/Plugin/Classical/ProtocolHandler.pm
+@@ -7,7 +7,7 @@ package Slim::Plugin::Classical::ProtocolHandler;
+ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ use URI::Escape qw(uri_escape_utf8);
+ 
+diff --git a/Slim/Plugin/Deezer/Plugin.pm b/Slim/Plugin/Deezer/Plugin.pm
+index 9f84598..8b10c45 100644
+--- a/Slim/Plugin/Deezer/Plugin.pm
++++ b/Slim/Plugin/Deezer/Plugin.pm
+@@ -13,7 +13,7 @@ package Slim::Plugin::Deezer::Plugin;
+ use strict;
+ use base qw(Slim::Plugin::OPMLBased);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use URI::Escape qw(uri_escape_utf8);
+ 
+ use Slim::Plugin::Deezer::ProtocolHandler;
+diff --git a/Slim/Plugin/Deezer/ProtocolHandler.pm b/Slim/Plugin/Deezer/ProtocolHandler.pm
+index 8f7d6ef..d1bce74 100644
+--- a/Slim/Plugin/Deezer/ProtocolHandler.pm
++++ b/Slim/Plugin/Deezer/ProtocolHandler.pm
+@@ -13,7 +13,7 @@ package Slim::Plugin::Deezer::ProtocolHandler;
+ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use URI::Escape qw(uri_escape_utf8);
+ use Scalar::Util qw(blessed);
+ 
+diff --git a/Slim/Plugin/DnDPlay/Plugin.pm b/Slim/Plugin/DnDPlay/Plugin.pm
+index 9067f50..6e25ecb 100644
+--- a/Slim/Plugin/DnDPlay/Plugin.pm
++++ b/Slim/Plugin/DnDPlay/Plugin.pm
+@@ -8,7 +8,7 @@ package Slim::Plugin::DnDPlay::Plugin;
+ use strict;
+ 
+ use File::Temp qw(tempfile);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Utils::Log;
+ use Slim::Utils::Prefs;
+diff --git a/Slim/Plugin/Flickr/Plugin.pm b/Slim/Plugin/Flickr/Plugin.pm
+index 7056498..7c5bd21 100644
+--- a/Slim/Plugin/Flickr/Plugin.pm
++++ b/Slim/Plugin/Flickr/Plugin.pm
+@@ -5,7 +5,7 @@ package Slim::Plugin::Flickr::Plugin;
+ use strict;
+ use base qw(Slim::Plugin::OPMLBased);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use URI::Escape qw(uri_escape_utf8);
+ 
+ use Slim::Networking::SqueezeNetwork;
+diff --git a/Slim/Plugin/ImageBrowser/Plugin.pm b/Slim/Plugin/ImageBrowser/Plugin.pm
+index 66cddc9..1cbc3ac 100644
+--- a/Slim/Plugin/ImageBrowser/Plugin.pm
++++ b/Slim/Plugin/ImageBrowser/Plugin.pm
+@@ -12,7 +12,7 @@ use base qw(Slim::Plugin::OPMLBased);
+ use POSIX qw(strftime);
+ use Date::Parse qw(strptime);
+ use XML::Simple;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Utils::Log;
+ use Slim::Utils::Strings qw(string);
+diff --git a/Slim/Plugin/Live365/ProtocolHandler.pm b/Slim/Plugin/Live365/ProtocolHandler.pm
+index bb46027..2bd2337 100644
+--- a/Slim/Plugin/Live365/ProtocolHandler.pm
++++ b/Slim/Plugin/Live365/ProtocolHandler.pm
+@@ -5,7 +5,7 @@ package Slim::Plugin::Live365::ProtocolHandler;
+ use strict;
+ use base qw( Slim::Player::Protocols::HTTP );
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use URI::Escape qw(uri_escape);
+ 
+ use Slim::Player::Playlist;
+diff --git a/Slim/Plugin/MOG/ProtocolHandler.pm b/Slim/Plugin/MOG/ProtocolHandler.pm
+index 686cdbf..3c8b0e0 100644
+--- a/Slim/Plugin/MOG/ProtocolHandler.pm
++++ b/Slim/Plugin/MOG/ProtocolHandler.pm
+@@ -5,7 +5,7 @@ package Slim::Plugin::MOG::ProtocolHandler;
+ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ use URI::Escape qw(uri_escape_utf8);
+ 
+diff --git a/Slim/Plugin/Orange/Metadata.pm b/Slim/Plugin/Orange/Metadata.pm
+index 1b36e4d..10d0889 100644
+--- a/Slim/Plugin/Orange/Metadata.pm
++++ b/Slim/Plugin/Orange/Metadata.pm
+@@ -8,7 +8,7 @@ use URI::Escape qw(uri_escape_utf8);
+ use URI::Split qw(uri_split);
+ 
+ use Slim::Formats::RemoteMetadata;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Slim::Music::Info;
+ use Slim::Networking::SimpleAsyncHTTP;
+ use Slim::Utils::Log;
+diff --git a/Slim/Plugin/Pandora/ProtocolHandler.pm b/Slim/Plugin/Pandora/ProtocolHandler.pm
+index 1e47948..82bffe6 100644
+--- a/Slim/Plugin/Pandora/ProtocolHandler.pm
++++ b/Slim/Plugin/Pandora/ProtocolHandler.pm
+@@ -7,7 +7,7 @@ package Slim::Plugin::Pandora::ProtocolHandler;
+ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Player::Playlist;
+ use Slim::Utils::Misc;
+diff --git a/Slim/Plugin/RemoteLibrary/LMS.pm b/Slim/Plugin/RemoteLibrary/LMS.pm
+index 93c75f9..73b3bf7 100644
+--- a/Slim/Plugin/RemoteLibrary/LMS.pm
++++ b/Slim/Plugin/RemoteLibrary/LMS.pm
+@@ -15,7 +15,7 @@ than the local database.
+ 
+ use strict;
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use MIME::Base64 qw(encode_base64 decode_base64);
+ 
+ use Slim::Menu::BrowseLibrary;
+@@ -510,4 +510,4 @@ sub getServerDetails {
+ 	}
+ }
+ 
+-1;
+\ No newline at end of file
++1;
+diff --git a/Slim/Plugin/RemoteLibrary/ProtocolHandler.pm b/Slim/Plugin/RemoteLibrary/ProtocolHandler.pm
+index 81cedd9..8b85044 100644
+--- a/Slim/Plugin/RemoteLibrary/ProtocolHandler.pm
++++ b/Slim/Plugin/RemoteLibrary/ProtocolHandler.pm
+@@ -3,7 +3,7 @@ package Slim::Plugin::RemoteLibrary::ProtocolHandler;
+ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ 
+ use Slim::Networking::SimpleAsyncHTTP;
+diff --git a/Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm b/Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm
+index e129922..b885b0e 100644
+--- a/Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm
++++ b/Slim/Plugin/RhapsodyDirect/ProtocolHandler.pm
+@@ -6,7 +6,7 @@ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+ use HTML::Entities qw(encode_entities);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use MIME::Base64 qw(decode_base64);
+ use Scalar::Util qw(blessed);
+ use URI::Escape qw(uri_escape_utf8);
+diff --git a/Slim/Plugin/SN/ProtocolHandler.pm b/Slim/Plugin/SN/ProtocolHandler.pm
+index e522a42..cb9683d 100644
+--- a/Slim/Plugin/SN/ProtocolHandler.pm
++++ b/Slim/Plugin/SN/ProtocolHandler.pm
+@@ -16,7 +16,7 @@ use strict;
+ 
+ use Time::HiRes;
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Slim::Utils::Timers;
+ use Slim::Utils::Log;
+ 
+diff --git a/Slim/Plugin/Slacker/ProtocolHandler.pm b/Slim/Plugin/Slacker/ProtocolHandler.pm
+index 12445c5..50ed034 100644
+--- a/Slim/Plugin/Slacker/ProtocolHandler.pm
++++ b/Slim/Plugin/Slacker/ProtocolHandler.pm
+@@ -9,7 +9,7 @@ use Slim::Music::Info;
+ use Slim::Utils::Misc;
+ use Slim::Utils::Timers;
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ my $log = Slim::Utils::Log->addLogCategory( {
+ 	category     => 'plugin.slacker',
+diff --git a/Slim/Plugin/WiMP/ProtocolHandler.pm b/Slim/Plugin/WiMP/ProtocolHandler.pm
+index 49ced45..07e16a7 100644
+--- a/Slim/Plugin/WiMP/ProtocolHandler.pm
++++ b/Slim/Plugin/WiMP/ProtocolHandler.pm
+@@ -5,7 +5,7 @@ package Slim::Plugin::WiMP::ProtocolHandler;
+ use strict;
+ use base qw(Slim::Player::Protocols::HTTP);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use URI::Escape qw(uri_escape_utf8);
+ use Scalar::Util qw(blessed);
+ 
+diff --git a/Slim/Schema/TrackPersistent.pm b/Slim/Schema/TrackPersistent.pm
+index b81f8e5..a3be23d 100644
+--- a/Slim/Schema/TrackPersistent.pm
++++ b/Slim/Schema/TrackPersistent.pm
+@@ -6,7 +6,7 @@ use strict;
+ use base 'Slim::Schema::DBI';
+ 
+ use File::Slurp qw(read_file);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ 
+ use Slim::Utils::DateTime;
+diff --git a/Slim/Utils/Prefs/Base.pm b/Slim/Utils/Prefs/Base.pm
+index 53b336c..3afe667 100644
+--- a/Slim/Utils/Prefs/Base.pm
++++ b/Slim/Utils/Prefs/Base.pm
+@@ -20,7 +20,7 @@ Base class for preference objects implementing methods which can be used on glob
+ 
+ use strict;
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ use Storable;
+ 
+diff --git a/Slim/Utils/Progress.pm b/Slim/Utils/Progress.pm
+index 2e8fc4e..aea8995 100644
+--- a/Slim/Utils/Progress.pm
++++ b/Slim/Utils/Progress.pm
+@@ -9,7 +9,7 @@ package Slim::Utils::Progress;
+ use strict;
+ use base qw(Slim::Utils::Accessor);
+ 
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ 
+ use Slim::Schema;
+ use Slim::Utils::Unicode;
+diff --git a/Slim/Utils/SQLiteHelper.pm b/Slim/Utils/SQLiteHelper.pm
+index fad906c..68eb69c 100644
+--- a/Slim/Utils/SQLiteHelper.pm
++++ b/Slim/Utils/SQLiteHelper.pm
+@@ -23,7 +23,7 @@ use File::Basename;
+ use File::Path;
+ use File::Slurp;
+ use File::Spec::Functions qw(:ALL);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Time::HiRes qw(sleep);
+ 
+ use Slim::Utils::ArtworkCache;
+diff --git a/Slim/Utils/Strings.pm b/Slim/Utils/Strings.pm
+index ef18392..85586a8 100644
+--- a/Slim/Utils/Strings.pm
++++ b/Slim/Utils/Strings.pm
+@@ -46,7 +46,7 @@ use POSIX qw(setlocale LC_TIME LC_COLLATE);
+ use File::Basename;
+ use File::Slurp qw(read_file write_file);
+ use File::Spec::Functions qw(:ALL);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ use Storable;
+ 
+diff --git a/Slim/Web/Cometd.pm b/Slim/Web/Cometd.pm
+index 8761802..638cbd9 100644
+--- a/Slim/Web/Cometd.pm
++++ b/Slim/Web/Cometd.pm
+@@ -20,7 +20,7 @@ use strict;
+ 
+ use bytes;
+ use HTTP::Date;
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ use URI::Escape qw(uri_unescape);
+ 
+diff --git a/Slim/Web/JSONRPC.pm b/Slim/Web/JSONRPC.pm
+index 86c03d0..ae76fdd 100644
+--- a/Slim/Web/JSONRPC.pm
++++ b/Slim/Web/JSONRPC.pm
+@@ -13,7 +13,7 @@ package Slim::Web::JSONRPC;
+ use strict;
+ 
+ use HTTP::Status qw(RC_OK);
+-use JSON::XS::VersionOneAndTwo;
++use JSON;
+ use Scalar::Util qw(blessed);
+ 
+ use Slim::Web::HTTP;

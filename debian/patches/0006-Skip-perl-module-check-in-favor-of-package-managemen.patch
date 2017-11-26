@@ -1,16 +1,16 @@
-From: "C. Huhn" <spoved@knollhuhn.de>
-Date: Sun, 23 Mar 2014 12:56:38 +0100
-Subject: Don't check Perl module dependencies, rely on apt
+From: Christopher Huhn <c.huhn@gsi.de>
+Date: Sun, 26 Nov 2017 22:40:23 +0100
+Subject: Skip perl module check in favor of package management
 
 ---
- Slim/bootstrap.pm |   25 -------------------------
+ Slim/bootstrap.pm | 25 -------------------------
  1 file changed, 25 deletions(-)
 
 diff --git a/Slim/bootstrap.pm b/Slim/bootstrap.pm
-index 8fb87d3..7fd2418 100644
+index 3a2dcca..bb0a70b 100644
 --- a/Slim/bootstrap.pm
 +++ b/Slim/bootstrap.pm
-@@ -224,31 +224,6 @@ don't work for you, ask for help and/or report a bug.
+@@ -225,31 +225,6 @@ don't work for you, ask for help and/or report a bug.
  	# And we're done with the trying - put our CPAN path back on @INC.
  	unshift @INC, @SlimINC;
  	

@@ -1,9 +1,9 @@
 From: Christopher Huhn <c.huhn@gsi.de>
-Date: Sun, 2 Mar 2014 22:15:21 +0100
-Subject: Derive our own path definitions from existing Debian template
+Date: Sun, 26 Nov 2017 22:26:12 +0100
+Subject: Add custom OS definition
 
 ---
- Slim/Utils/OS/Custom.pm |  114 +++++++++++++++++++++++++++++++++++++++++++++++
+ Slim/Utils/OS/Custom.pm | 114 ++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 114 insertions(+)
  create mode 100644 Slim/Utils/OS/Custom.pm
 
