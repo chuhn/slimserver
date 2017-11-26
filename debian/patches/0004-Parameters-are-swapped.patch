@@ -1,16 +1,16 @@
 From: Christopher Huhn <c.huhn@gsi.de>
-Date: Wed, 12 Mar 2014 11:55:51 +0100
-Subject: TTL and IP are reverted in resolver response
+Date: Sun, 26 Nov 2017 22:37:27 +0100
+Subject: Parameters are swapped
 
 ---
- Slim/Networking/Async/DNS.pm |    6 +++---
+ Slim/Networking/Async/DNS.pm | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/Slim/Networking/Async/DNS.pm b/Slim/Networking/Async/DNS.pm
-index d91c03d..7cf710f 100644
+index 65be2de..21db1bf 100644
 --- a/Slim/Networking/Async/DNS.pm
 +++ b/Slim/Networking/Async/DNS.pm
-@@ -109,8 +109,8 @@ sub resolve {
+@@ -70,8 +70,8 @@ sub resolve {
  			return;
  		}
  		
@@ -21,7 +21,7 @@ index d91c03d..7cf710f 100644
  		
  		main::DEBUGLOG && $log->is_debug && $log->debug( "Got DNS response $addr for $host (ttl $ttl)" );
  		
-@@ -139,4 +139,4 @@ sub cached {
+@@ -100,4 +100,4 @@ sub cached {
  	return;
  }
  

@@ -1,6 +1,6 @@
-0001-Use-Digest-SHA-instead-of-Digest-SHA1-the-latter-is-.patch
-0002-Derive-our-own-path-definitions-from-existing-Debian.patch
-0003-JSON-XS-VersionOneAndTwo-totally-obsolete.patch
-0004-TTL-and-IP-are-reverted-in-resolver-response.patch
-0005-Don-t-break-recent-DBIx-Class-versions.patch
-0006-Don-t-check-Perl-module-dependencies-rely-on-apt.patch
+0001-Replace-Digest-SHA1-with-Digest-SHA.patch
+0002-Add-custom-OS-definition.patch
+0003-Use-JSON-instead-of-JSON-XS-VersionOneAndTwo.patch
+0004-Parameters-are-swapped.patch
+0005-Setting-storage-types-breaks-DBIx-Class.patch
+0006-Skip-perl-module-check-in-favor-of-package-managemen.patch

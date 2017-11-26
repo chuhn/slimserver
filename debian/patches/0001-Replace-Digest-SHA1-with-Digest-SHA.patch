@@ -1,26 +1,25 @@
 From: Christopher Huhn <c.huhn@gsi.de>
-Date: Sun, 2 Mar 2014 21:37:25 +0100
-Subject: Use Digest::SHA instead of Digest::SHA1 - the latter is not in
- Debian
+Date: Sun, 26 Nov 2017 22:06:40 +0100
+Subject: Replace Digest::SHA1 with Digest::SHA
 
+Digest::SHA from Perl core modules is available in Debian as libdigest-sha-perl
 ---
- Slim/Control/Commands.pm                   |    2 +-
- Slim/Music/Artwork.pm                      |    2 +-
- Slim/Networking/SqueezeNetwork.pm          |    2 +-
- Slim/Plugin/iTunes/Common.pm               |    4 ++--
- Slim/Utils/Firmware.pm                     |    6 +++---
- Slim/Utils/Misc.pm                         |    2 +-
- Slim/Utils/PluginDownloader.pm             |    4 ++--
- Slim/Utils/Strings.pm                      |    2 +-
- Slim/Web/HTTP.pm                           |    2 +-
- Slim/Web/Settings/Server/Security.pm       |    2 +-
- Slim/Web/Settings/Server/SqueezeNetwork.pm |    2 +-
- Slim/Web/Settings/Server/Wizard.pm         |    2 +-
- Slim/bootstrap.pm                          |    2 +-
- 13 files changed, 17 insertions(+), 17 deletions(-)
+ Slim/Control/Commands.pm                   | 2 +-
+ Slim/Networking/SqueezeNetwork.pm          | 2 +-
+ Slim/Plugin/iTunes/Common.pm               | 4 ++--
+ Slim/Utils/Firmware.pm                     | 6 +++---
+ Slim/Utils/Misc.pm                         | 2 +-
+ Slim/Utils/PluginDownloader.pm             | 4 ++--
+ Slim/Utils/Strings.pm                      | 2 +-
+ Slim/Web/HTTP.pm                           | 2 +-
+ Slim/Web/Settings/Server/Security.pm       | 2 +-
+ Slim/Web/Settings/Server/SqueezeNetwork.pm | 2 +-
+ Slim/Web/Settings/Server/Wizard.pm         | 2 +-
+ Slim/bootstrap.pm                          | 2 +-
+ 12 files changed, 16 insertions(+), 16 deletions(-)
 
 diff --git a/Slim/Control/Commands.pm b/Slim/Control/Commands.pm
-index ecbbf9a..1eeacb3 100644
+index 3857788..9940d18 100644
 --- a/Slim/Control/Commands.pm
 +++ b/Slim/Control/Commands.pm
 @@ -31,7 +31,7 @@ use Scalar::Util qw(blessed);
@@ -32,21 +31,8 @@ index ecbbf9a..1eeacb3 100644
  use JSON::XS::VersionOneAndTwo;
  
  use Slim::Utils::Alarm;
-diff --git a/Slim/Music/Artwork.pm b/Slim/Music/Artwork.pm
-index 5cd79b6..77760be 100644
---- a/Slim/Music/Artwork.pm
-+++ b/Slim/Music/Artwork.pm
-@@ -959,7 +959,7 @@ sub _downloadArtwork {
- 			. '&artist=' . URI::Escape::uri_escape_utf8( $artist || '' )
- 			. '&mbid=' . ( $lastFile{meta}->{album_mbid} || '' );
- 	
--		my $base = catfile( $params->{cacheDir}, Digest::SHA1::sha1_hex($args) );
-+		my $base = catfile( $params->{cacheDir}, Digest::SHA::sha1_hex($args) );
- 	
- 		# if we're done or have failed on that combination before, skip it
- 		if ( $done || $lastFile{ "failed_" . $lastFile{meta}->{albumid} } || $lastFile{ "failed_$base" } || $lastFile{ $lastFile{meta}->{albumid} } ) {
 diff --git a/Slim/Networking/SqueezeNetwork.pm b/Slim/Networking/SqueezeNetwork.pm
-index bbe115f..3b9f775 100644
+index 4897946..67ef313 100644
 --- a/Slim/Networking/SqueezeNetwork.pm
 +++ b/Slim/Networking/SqueezeNetwork.pm
 @@ -7,7 +7,7 @@ package Slim::Networking::SqueezeNetwork;
@@ -57,7 +43,7 @@ index bbe115f..3b9f775 100644
 +use Digest::SHA qw(sha1_base64);
  use JSON::XS::VersionOneAndTwo;
  use MIME::Base64 qw(encode_base64);
- use URI::Escape qw(uri_escape);
+ use List::Util qw(max);
 diff --git a/Slim/Plugin/iTunes/Common.pm b/Slim/Plugin/iTunes/Common.pm
 index f44847f..9936874 100644
 --- a/Slim/Plugin/iTunes/Common.pm
@@ -81,7 +67,7 @@ index f44847f..9936874 100644
  	my $checksum = $sha1->hexdigest;
  	
 diff --git a/Slim/Utils/Firmware.pm b/Slim/Utils/Firmware.pm
-index e81e5b3..bf5f76f 100644
+index 7c99d9a..8d11aeb 100644
 --- a/Slim/Utils/Firmware.pm
 +++ b/Slim/Utils/Firmware.pm
 @@ -29,7 +29,7 @@ file before being saved.
@@ -93,7 +79,7 @@ index e81e5b3..bf5f76f 100644
  use File::Basename;
  use File::Slurp qw(read_file);
  use File::Spec::Functions qw(:ALL);
-@@ -384,7 +384,7 @@ sub download {
+@@ -393,7 +393,7 @@ sub download {
  			open my $fh, '<', $file or fatal("Unable to read $file to verify firmware\n");
  			binmode $fh;
  			
@@ -102,7 +88,7 @@ index e81e5b3..bf5f76f 100644
  			$sha1->addfile($fh);
  			close $fh;
  			
-@@ -510,7 +510,7 @@ sub downloadAsyncSHADone {
+@@ -519,7 +519,7 @@ sub downloadAsyncSHADone {
  	open my $fh, '<', "$file.tmp" or return downloadAsyncError( $http, "Unable to read $file to verify firmware" );
  	binmode $fh;
  	
@@ -112,10 +98,10 @@ index e81e5b3..bf5f76f 100644
  	close $fh;
  	
 diff --git a/Slim/Utils/Misc.pm b/Slim/Utils/Misc.pm
-index 635014b..3f4241a 100644
+index 7acf105..4113629 100644
 --- a/Slim/Utils/Misc.pm
 +++ b/Slim/Utils/Misc.pm
-@@ -46,7 +46,7 @@ use Time::HiRes;
+@@ -43,7 +43,7 @@ use Time::HiRes;
  use URI;
  use URI::Escape;
  use URI::file;
@@ -125,7 +111,7 @@ index 635014b..3f4241a 100644
  # These must be 'required', as they use functions from the Misc module!
  require Slim::Music::Info;
 diff --git a/Slim/Utils/PluginDownloader.pm b/Slim/Utils/PluginDownloader.pm
-index 5c35f93..e695b66 100644
+index 8e198a3..c88c684 100644
 --- a/Slim/Utils/PluginDownloader.pm
 +++ b/Slim/Utils/PluginDownloader.pm
 @@ -11,7 +11,7 @@ use strict;
@@ -147,7 +133,7 @@ index 5c35f93..e695b66 100644
  		open my $fh, '<', $file;
  
 diff --git a/Slim/Utils/Strings.pm b/Slim/Utils/Strings.pm
-index 20d2270..54cb024 100644
+index 04c5341..ef18392 100644
 --- a/Slim/Utils/Strings.pm
 +++ b/Slim/Utils/Strings.pm
 @@ -41,7 +41,7 @@ use Exporter::Lite;
@@ -157,10 +143,10 @@ index 20d2270..54cb024 100644
 -use Digest::SHA1 qw(sha1_hex);
 +use Digest::SHA qw(sha1_hex);
  use POSIX qw(setlocale LC_TIME LC_COLLATE);
+ use File::Basename;
  use File::Slurp qw(read_file write_file);
- use File::Spec::Functions qw(:ALL);
 diff --git a/Slim/Web/HTTP.pm b/Slim/Web/HTTP.pm
-index f6a6641..1e8d0f9 100644
+index 92e3e82..5f91053 100644
 --- a/Slim/Web/HTTP.pm
 +++ b/Slim/Web/HTTP.pm
 @@ -11,7 +11,7 @@ use strict;
@@ -199,7 +185,7 @@ index 8777f34..92e219f 100644
  use Slim::Networking::SqueezeNetwork;
  use Slim::Utils::Strings qw(string);
 diff --git a/Slim/Web/Settings/Server/Wizard.pm b/Slim/Web/Settings/Server/Wizard.pm
-index 5ad9219..3b89ef6 100644
+index f25b849..e7ed901 100644
 --- a/Slim/Web/Settings/Server/Wizard.pm
 +++ b/Slim/Web/Settings/Server/Wizard.pm
 @@ -7,7 +7,7 @@ package Slim::Web::Settings::Server::Wizard;
@@ -208,11 +194,11 @@ index 5ad9219..3b89ef6 100644
  use base qw(Slim::Web::Settings);
 -use Digest::SHA1 qw(sha1_base64);
 +use Digest::SHA qw(sha1_base64);
- use I18N::LangTags qw(extract_language_tags);
  use HTTP::Status qw(RC_MOVED_TEMPORARILY);
  
+ use Slim::Utils::Log;
 diff --git a/Slim/bootstrap.pm b/Slim/bootstrap.pm
-index f390c34..8fb87d3 100644
+index 9a7fac9..3a2dcca 100644
 --- a/Slim/bootstrap.pm
 +++ b/Slim/bootstrap.pm
 @@ -52,7 +52,7 @@ use Slim::Utils::OSDetect;
