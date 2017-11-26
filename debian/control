@@ -10,7 +10,34 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: slimserver
 Architecture: all
-Depends: ${misc:Depends}, adduser, libanyevent-perl, libaudio-scan-perl, libcache-cache-perl, libdata-dump-perl, libdata-uriencode-perl, libdigest-sha-perl, libdbix-migration-perl, libev-perl, libfile-bom-perl, libfile-next-perl, libfile-readbackwards-perl, libfile-slurp-perl, libimage-scale-perl, liblog-log4perl-perl, libpath-class-perl, libproc-background-perl, libsql-abstract-limit-perl, libtext-unidecode-perl, libtie-cache-lru-perl, libtie-cache-lru-expires-perl, libtie-regexphash-perl, liburi-find-perl, libuuid-tiny-perl
+Depends: ${misc:Depends}, adduser,
+ libanyevent-perl,
+ libaudio-scan-perl,
+ libcache-cache-perl,
+ libdata-dump-perl,
+ libdata-uriencode-perl,
+ libdigest-sha-perl,
+ libdbix-perl,
+ libdbix-migration-perl,
+ libev-perl,
+ libexporter-lite-perl,
+ libfile-bom-perl,
+ libfile-next-perl,
+ libfile-readbackwards-perl,
+ libfile-slurp-perl,
+ libimage-scale-perl,
+ libjson-perl,
+ liblog-log4perl-perl,
+ libpath-class-perl,
+ libproc-background-perl,
+ libsql-abstract-limit-perl,
+ libtext-unidecode-perl,
+ libtie-cache-lru-perl,
+ libtie-cache-lru-expires-perl,
+ libtie-regexphash-perl,
+ liburi-find-perl,
+ libuuid-tiny-perl,
+ libxml-simple-perl
 Recommends: libnetwork-ipv4addr-perl, lame
 Description: <insert up to 60 chars description>
  <insert long description, indented with spaces>
