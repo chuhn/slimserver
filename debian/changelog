@@ -8,4 +8,4 @@ slimserver (7.8.0-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 
- -- Christopher Huhn <christo@arthur.knollhuhn.de>  Sat, 01 Mar 2014 18:17:35 +0100
+ -- Christopher Huhn <christo@knollhuhn.de>  Sat, 01 Mar 2014 18:17:35 +0100

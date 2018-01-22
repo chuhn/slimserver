@@ -1,0 +1,23 @@
+From: Christopher Huhn <c.huhn@gsi.de>
+Date: Tue, 11 Mar 2014 20:27:28 +0100
+Subject: Don't attach in on_connect_do and disable the following pragma too
+
+---
+ Slim/Utils/SQLiteHelper.pm | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Slim/Utils/SQLiteHelper.pm b/Slim/Utils/SQLiteHelper.pm
+index b62d835..fdd79d1 100644
+--- a/Slim/Utils/SQLiteHelper.pm
++++ b/Slim/Utils/SQLiteHelper.pm
+@@ -143,8 +143,8 @@ sub on_connect_do {
+ 	# we need to migrate long 7.6.0 file names to shorter 7.6.1 filenames: Windows can't handle the long version
+ 	_migrateDBFile($class->_dbFile('squeezebox-persistent.db'), $persistentdb);
+ 
+-	push @{$sql}, "ATTACH '$persistentdb' AS persistentdb";
+-	push @{$sql}, 'PRAGMA persistentdb.journal_mode = WAL';
++	#push @{$sql}, "ATTACH '$persistentdb' AS persistentdb";
++	#push @{$sql}, 'PRAGMA persistentdb.journal_mode = WAL';
+ 	
+ 	return $sql;
+ }
