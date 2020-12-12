@@ -1,0 +1,18 @@
+[Unit]
+Description=Slimserver aka. Logitech Media Server
+After=network.target
+
+[Service]
+User=slimserver
+Group=slimserver
+PIDFile=/var/run/slimserver.pid
+WorkingDirectory=/var/lib/slimserver
+ExecStart=/usr/sbin/slimserver \
+	--prefsdir /var/lib/slimserver/prefs \
+	--cachedir /var/cache/slimserver \
+	--logdir /var/log/slimserver \
+	--noimage --novideo \
+	--perfmon --perfwarn
+
+[Install]
+WantedBy=multi-user.target
