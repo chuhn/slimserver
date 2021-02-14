@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=slimserver
 Group=slimserver
-PIDFile=/var/run/slimserver.pid
+# PIDFile=/run/slimserver.pid
 WorkingDirectory=/var/lib/slimserver
 ExecStart=/usr/sbin/slimserver \
 	--prefsdir /var/lib/slimserver/prefs \
