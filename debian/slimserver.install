@@ -11,3 +11,4 @@ SQL/SQLite/*.sql  /usr/share/slimserver/SQL/SQLite/
 strings.txt       /usr/share/slimserver/
 convert.conf      /etc/slimserver/
 types.conf        /etc/slimserver/
+lib/AnyEvent/Impl/PerfMonEV.pm  /usr/share/perl5/AnyEvent/Impl/
