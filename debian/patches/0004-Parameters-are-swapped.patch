@@ -7,10 +7,10 @@ Subject: Parameters are swapped
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/Slim/Networking/Async/DNS.pm b/Slim/Networking/Async/DNS.pm
-index 65be2de..21db1bf 100644
+index 0483b6b..08893a2 100644
 --- a/Slim/Networking/Async/DNS.pm
 +++ b/Slim/Networking/Async/DNS.pm
-@@ -70,8 +70,8 @@ sub resolve {
+@@ -69,8 +69,8 @@ sub resolve {
  			return;
  		}
  		
@@ -21,7 +21,7 @@ index 65be2de..21db1bf 100644
  		
  		main::DEBUGLOG && $log->is_debug && $log->debug( "Got DNS response $addr for $host (ttl $ttl)" );
  		
-@@ -100,4 +100,4 @@ sub cached {
+@@ -99,4 +99,4 @@ sub cached {
  	return;
  }
  

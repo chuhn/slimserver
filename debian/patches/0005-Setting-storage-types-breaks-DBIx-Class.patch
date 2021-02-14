@@ -3,22 +3,20 @@ Date: Sun, 26 Nov 2017 22:39:06 +0100
 Subject: Setting storage types breaks DBIx::Class
 
 ---
- Slim/Schema.pm | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ Slim/Schema.pm | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/Slim/Schema.pm b/Slim/Schema.pm
-index 622d2b0..aed8650 100644
+index 5c5fd41..58b9703 100644
 --- a/Slim/Schema.pm
 +++ b/Slim/Schema.pm
-@@ -267,8 +267,9 @@ sub _connect {
- 	
+@@ -264,7 +264,8 @@ sub _connect {
  	my ($driver, $source, $username, $password) = $class->sourceInformation;
  
--	# For custom exceptions
+ 	# For custom exceptions
 -	$class->storage_type('Slim::Schema::Storage');
-+	# For custom exceptions 
 +	# FIXME: breaks DBIx::Class newer than 0.08112
 +	#$class->storage_type('Slim::Schema::Storage');
- 	
+ 
  	my $sqlHelperClass = Slim::Utils::OSDetect->getOS()->sqlHelperClass();
  	my $on_connect_do = $sqlHelperClass->on_connect_do();

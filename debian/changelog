@@ -1,11 +1,158 @@
-slimserver (7.9+20171120.12c414e-1) UNRELEASED; urgency=medium
+slimserver (8.1.1-1) UNRELEASED; urgency=medium
+
+  [ Christopher Huhn ]
+  * Import files from dh_make
+  * Add essential executables
+  * dh-exec required for file rename during install
+  * Set executable bit
+  * debhelper 9 compat level for dh-exec
+  * Add some dependencies and include Slim/ subdir
+  * Add 1st patch
+  * Patch for changed paths
+  * JSON::XS::VersionOneAndTwo totally obsolete
+  * Some Perl dependencies
+  * Create dirs for config and log files
+  * Add dir for preferences, another Perl dependency
+  * Add cache dir + some explanations
+  * chown all subdirs of /var/lib/slimserver
+  * Install strings.txt to /usr/share/slimserver/
+  * Fix startup with pristine DBIx::Class, add first SQL file
+  * Extended patch
+  * Install all SQL files
+  * Disable on_connect_do patch
+  * Add SQL::Abstract::Limit to dependencies, leave out DBIx::Class for testing
+  * Add File::ReadBackwards and Network::IPv4Addr to dependencies
+  * Install HTML subtree to /usr/share/slimserver
+  * Where did this blank come from?
+  * Fix DNS lookup
+  * Add Image::Scale dependency
+  * Look for firmware in /var/...
+  * Add required conffiles and the fonts
+  * Stick with the bitmaps for now
+  * Reorderd and IR added
+  * Add some info about the packaging
+  * Working patch in, futile patch out
+
+  [ C. Huhn ]
+  * Missed to merge version bump
+  * Reformat
+  * Rename to build on Wheezy?
+  * Remove empty lines
+  * Remove comment
+  * Patches updated and new patch to avoid looking for modules.conf
+  * Re-add dependency on DBIx::Migration
+  * Add firmware version info to package
+  * Copy firmware version info from /usr to /var on install
+  * Recommend lame
+  * Refined patches
+
+  [ Christopher Huhn ]
+  * Import files from dh_make
+  * Add essential executables
+  * dh-exec required for file rename during install
+  * Set executable bit
+  * debhelper 9 compat level for dh-exec
+  * Add some dependencies and include Slim/ subdir
+  * JSON::XS::VersionOneAndTwo totally obsolete
+  * Some Perl dependencies
+  * Create dirs for config and log files
+  * Add dir for preferences, another Perl dependency
+  * Add cache dir + some explanations
+  * chown all subdirs of /var/lib/slimserver
+  * Install strings.txt to /usr/share/slimserver/
+  * Fix startup with pristine DBIx::Class, add first SQL file
+  * Extended patch
+  * Install all SQL files
+  * Add SQL::Abstract::Limit to dependencies, leave out DBIx::Class for testing
+  * Add File::ReadBackwards and Network::IPv4Addr to dependencies
+  * Install HTML subtree to /usr/share/slimserver
+  * Where did this blank come from?
+  * Add Image::Scale dependency
+  * Add required conffiles and the fonts
+  * Stick with the bitmaps for now
+  * Reorderd and IR added
+  * Add some info about the packaging
+
+  [ C. Huhn ]
+  * Missed to merge version bump
+  * Reformat
+  * Rename to build on Wheezy?
+  * Remove empty lines
+  * Remove comment
+  * Re-add dependency on DBIx::Migration
+  * Add firmware version info to package
+  * Copy firmware version info from /usr to /var on install
+  * Recommend lame
+
+  [ Christopher Huhn ]
+  * Import files from dh_make
+  * Add essential executables
+  * dh-exec required for file rename during install
+  * Set executable bit
+  * debhelper 9 compat level for dh-exec
+  * Add some dependencies and include Slim/ subdir
+  * Add 1st patch
+  * Patch for changed paths
+  * JSON::XS::VersionOneAndTwo totally obsolete
+  * Some Perl dependencies
+  * Create dirs for config and log files
+  * Add dir for preferences, another Perl dependency
+  * Add cache dir + some explanations
+  * chown all subdirs of /var/lib/slimserver
+  * Install strings.txt to /usr/share/slimserver/
+  * Fix startup with pristine DBIx::Class, add first SQL file
+  * Extended patch
+  * Install all SQL files
+  * Disable on_connect_do patch
+  * Add SQL::Abstract::Limit to dependencies, leave out DBIx::Class for testing
+  * Add File::ReadBackwards and Network::IPv4Addr to dependencies
+  * Install HTML subtree to /usr/share/slimserver
+  * Where did this blank come from?
+  * Fix DNS lookup
+  * Add Image::Scale dependency
+  * Look for firmware in /var/...
+  * Add required conffiles and the fonts
+  * Stick with the bitmaps for now
+  * Reorderd and IR added
+  * Add some info about the packaging
+  * Working patch in, futile patch out
+
+  [ C. Huhn ]
+  * Missed to merge version bump
+  * Reformat
+  * Rename to build on Wheezy?
+  * Remove empty lines
+  * Remove comment
+  * Patches updated and new patch to avoid looking for modules.conf
+  * Re-add dependency on DBIx::Migration
+  * Add firmware version info to package
+  * Copy firmware version info from /usr to /var on install
+  * Recommend lame
+
+  [ Christopher Huhn ]
+  * Add gbp.conf
+  * Build version 7.9.0 on a separate branch
+  * Package newest commit w/o version number
+  * Patches reapplied on 7.9 branch
+  * These files are no appropriate documentation
+  * Some missing dependencies added
+  * -slimservice-strings.txt disappeared
+  * Add systemd unit for slimserver
+  * Package name changed for DBIx::Class
+  * Drop the PID file
+  * Install AnyEvent::Impl::PerfMonEV
+  * Exclude CPAN subdir from source package
+
+ -- Christopher Huhn <debian@knollhuhn.de>  Sun, 14 Feb 2021 20:15:51 +0100
+
+slimserver (7.9+20171120.12c414e-1) local; urgency=medium
 
   * Package latest version
 
- -- Christopher Huhn <christo@knollhuhn.de>  Thu, 26 Nov 2017 21:38:50 +0100
+ -- Christopher Huhn <debian@knollhuhn.de>  Thu, 26 Nov 2017 21:38:50 +0100
 
 slimserver (7.8.0-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial packaging
 
- -- Christopher Huhn <christo@arthur.knollhuhn.de>  Sat, 01 Mar 2014 18:17:35 +0100
+ -- Christopher Huhn <debian@knollhuhn.de>  Sat, 01 Mar 2014 18:17:35 +0100
